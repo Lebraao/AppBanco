@@ -5,28 +5,22 @@ public class AppBanco {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
+        AccountInfo myAccount = new AccountInfo();
 
-        //Scanning user's information.
-
+        //Scanning user's name.
         System.out.print("Digite seu nome: ");
-        //Logging the client's name.
-        String clientName = sc.nextLine();
+        myAccount.titularAccount = sc.nextLine();
 
-        System.out.print("Digite seu saldo bancario: ");
-        //Logging the bank balance from the client.
-        double bankBalance = sc.nextDouble();
 
-        System.out.print("Qual tipo de conta bancaria deseja?: ");
-        //Getting the type of bank account from the client.
-        sc.nextLine();
-        String typeOfAccount = sc.nextLine();
 
         //Making the message to show client's information.
         String clientResumeInformation = """
                 
-                **********************************
+                ***********************************
                 Dados do cliente:
                 Nome:            %s
+                Agencia:         %s
+                Numero de conta: %s-%s
                 Saldo inical:    R$ %.2f
                 Tipo de conta:   %s
                 ***********************************
@@ -43,11 +37,13 @@ public class AppBanco {
                              
                 Digite a opcão desejada:\s""";
 
-        System.out.printf(clientResumeInformation, clientName, bankBalance, typeOfAccount);
+        //printing users information on console.
+        System.out.printf(clientResumeInformation, myAccount.titularAccount, myAccount.agency,
+               myAccount.numberAccount, myAccount.checkerNumber, myAccount.accountFunds, myAccount.typeOfAccount);
         //Making the variable to the choose option from de menu.
         int chooseOption;
         //Variables to store the initial balance and the for the funds difference.
-        double fundsDifference, initialBalance = bankBalance, differenceBalance;
+        double fundsDifference, initialBalance = myAccount.accountFunds, differenceBalance;
 
 
         do {
@@ -58,10 +54,10 @@ public class AppBanco {
             switch (chooseOption){
                 //Case one is for get the available balance and if have a difference to the initial one show in console.
                 case 1:
-                    System.out.printf("Saldo disponivel: R$ %.2f\n", bankBalance);
+                    System.out.printf("Saldo disponivel: R$ %.2f\n", myAccount.accountFunds);
 
-                    if(bankBalance != initialBalance){
-                        differenceBalance = bankBalance - initialBalance;
+                    if(myAccount.accountFunds != initialBalance){
+                        differenceBalance = myAccount.accountFunds - initialBalance;
                         System.out.printf("Diferenca de: R$ %.2f para o valor inicial\n", differenceBalance);
                     }
 
@@ -71,17 +67,22 @@ public class AppBanco {
                 case 2:
                     System.out.print("Quanto ira receber?: R$ ");
                     fundsDifference = sc.nextDouble();
-                    bankBalance += fundsDifference;
-                    System.out.printf("Novo saldo: R$ %.2f\n", bankBalance);
+                    myAccount.accountFunds += fundsDifference;
+                    System.out.printf("Novo saldo: R$ %.2f\n", myAccount.accountFunds);
 
                 break;
 
-                //Case three is for subtract funds from the account.
+                //Case three is for check if have sufficient funds and subtract funds from the account.
                 case 3:
                     System.out.print("Quanto ira enviar?: ");
                     fundsDifference = sc.nextDouble();
-                    bankBalance -= fundsDifference;
-                    System.out.printf("Novo saldo: R$ %.2f\n", bankBalance);
+
+                    if(fundsDifference < myAccount.accountFunds) {
+                        myAccount.accountFunds -= fundsDifference;
+                        System.out.printf("Novo saldo: R$ %.2f\n", myAccount.accountFunds);
+                    }else{
+                        System.out.println("Fundos insuficientes.");
+                    }
 
                 break;
 
@@ -99,6 +100,8 @@ public class AppBanco {
         }while(chooseOption != 4);
 
         System.out.println("Resumo final: ");
-        System.out.printf(clientResumeInformation, clientName, bankBalance, typeOfAccount);
+        System.out.printf(clientResumeInformation, myAccount.titularAccount, myAccount.agency,
+              myAccount.numberAccount, myAccount.checkerNumber, myAccount.accountFunds, myAccount.typeOfAccount);
+
     }
 }
