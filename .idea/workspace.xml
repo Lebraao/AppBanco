@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44e44961-0a36-4785-94d2-18a2cbfdf52e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/AccountInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountInfo.java" afterDir="false" />
-    </list>
+    <list default="true" id="44e44961-0a36-4785-94d2-18a2cbfdf52e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,7 +39,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Merging dev",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/git/projects/Java/JogoAdvinhacao",
     "settings.editor.selected.configurable": "preferences.general"
@@ -57,6 +55,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AppBanco" />
+        <item itemvalue="Application.AppBanco" />
         <item itemvalue="Application.AppBanco" />
         <item itemvalue="Application.AppBanco" />
         <item itemvalue="Application.AppBanco" />
