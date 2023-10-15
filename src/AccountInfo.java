@@ -41,17 +41,4 @@ public class AccountInfo {
       }
       return false;
     };
-
-    String clientResumeInformation = """
-                
-                ***********************************
-                Dados do cliente:
-                Nome:            %s
-                Agencia:         %s
-                Numero de conta: %s-%s
-                Saldo inical:    R$ %.2f
-                Tipo de conta:   %s
-                ***********************************
-                """;
-
 }
