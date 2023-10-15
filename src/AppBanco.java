@@ -67,8 +67,7 @@ public class AppBanco {
                 case 2:
                     System.out.print("Quanto ira receber?: R$ ");
                     fundsDifference = sc.nextDouble();
-                    myAccount.accountFunds += fundsDifference;
-                    System.out.printf("Novo saldo: R$ %.2f\n", myAccount.accountFunds);
+                    myAccount.addFunds(fundsDifference);
 
                 break;
 
@@ -77,11 +76,10 @@ public class AppBanco {
                     System.out.print("Quanto ira enviar?: ");
                     fundsDifference = sc.nextDouble();
 
-                    if(fundsDifference < myAccount.accountFunds) {
-                        myAccount.accountFunds -= fundsDifference;
-                        System.out.printf("Novo saldo: R$ %.2f\n", myAccount.accountFunds);
-                    }else{
-                        System.out.println("Fundos insuficientes.");
+                    if(myAccount.withdrawFunds(fundsDifference)) {
+                        System.out.println("Realizado com sucesso!");
+                        }else {
+                        System.out.println("Fundos insuficientes!");
                     }
 
                 break;
