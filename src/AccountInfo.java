@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class AccountInfo {
+<<<<<<< HEAD
 
     //Name and type of account.
     String titularAccount;
@@ -10,6 +11,12 @@ public class AccountInfo {
     String agency = "077" ;
 
     //Generate a random number between a interval.
+=======
+    //Agency number.
+    String agency = "077" ;
+
+    //Generate a random number to a account.
+>>>>>>> 12804e29437fb43e1c20dea5acc29df84c10811c
     int accountGenerator(int max, int min){
         Random random = new Random();
         return (random.nextInt(max - (min - 1)) + min);
@@ -21,17 +28,27 @@ public class AccountInfo {
     //Generate a random checker number.
     int checkerNumber = new Random().nextInt(9);
 
+<<<<<<< HEAD
     //Generate a random amount for the funds.
+=======
+    //Generate a random number for funds.
+>>>>>>> 12804e29437fb43e1c20dea5acc29df84c10811c
     double accountFunds = numberGenerator(9999, 999);
     double numberGenerator(double max, double min){
         Random random = new Random();
         return (random.nextDouble(max - (min - 1)) + min);
     }
 
+<<<<<<< HEAD
     //For add funds in account.
     public void addFunds(double funds){
         this.accountFunds += funds;
     };
+=======
+    //String for storage the account titular name.
+    String titularAccount;
+    String typeOfAccount = "Corrente";
+>>>>>>> 12804e29437fb43e1c20dea5acc29df84c10811c
 
     //For subtract funds in account.
     public boolean withdrawFunds(double funds){
