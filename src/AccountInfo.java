@@ -2,7 +2,6 @@ import java.util.Random;
 
 public class AccountInfo {
 
-
     //Name and type of account.
     String titularAccount;
     String typeOfAccount = "Corrente";
@@ -21,7 +20,6 @@ public class AccountInfo {
 
     //Generate a random checker number.
     int checkerNumber = new Random().nextInt(9);
-
 
     //Generate a random amount for the funds.
     double accountFunds = numberGenerator(9999, 999);

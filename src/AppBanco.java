@@ -25,7 +25,6 @@ public class AppBanco {
         //Variables to store the initial balance and the for the funds difference.
         double fundsDifference, initialBalance = myAccount.accountFunds, differenceBalance;
 
-
         do {
 
             System.out.print("\n" + messages.getMenuOptions());

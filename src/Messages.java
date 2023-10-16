@@ -1,5 +1,4 @@
 public class Messages {
-
     AccountInfo accountInfo = new AccountInfo();
 
     //Making the message to show client's information.
@@ -29,7 +28,6 @@ public class Messages {
     public String getMenuOptions(){
         return menuOptions;
     }
-
 
     public String getClientResumeInformation(){
 
