@@ -3,52 +3,32 @@ import java.util.Scanner;
 
 public class AppBanco {
     public static void main(String[] args) {
+
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         AccountInfo myAccount = new AccountInfo();
+        Messages messages = new Messages();
 
         //Scanning user's name.
         System.out.print("Digite seu nome: ");
         myAccount.titularAccount = sc.nextLine();
 
-
-
-        //Making the message to show client's information.
-        String clientResumeInformation = """
-                
-                ***********************************
-                Dados do cliente:
-                Nome:            %s
-                Agencia:         %s
-                Numero de conta: %s-%s
-                Saldo inical:    R$ %.2f
-                Tipo de conta:   %s
-                ***********************************
-                """;
-
-        //Making the principal menu options.
-        String menuOptions = """
-                Operaçoes:
-                                
-                1- Consultar saldos
-                2- Receber valor
-                3- Transferencia de valor
-                4- Sair
-                             
-                Digite a opcão desejada:\s""";
-
         //printing users information on console.
-        System.out.printf(clientResumeInformation, myAccount.titularAccount, myAccount.agency,
-               myAccount.numberAccount, myAccount.checkerNumber, myAccount.accountFunds, myAccount.typeOfAccount);
+        System.out.printf(messages.getClientResumeInformation(),
+                myAccount.titularAccount, myAccount.agency,
+               myAccount.numberAccount, myAccount.checkerNumber,
+                myAccount.accountFunds, myAccount.typeOfAccount);
+
         //Making the variable to the choose option from de menu.
         int chooseOption;
+
         //Variables to store the initial balance and the for the funds difference.
         double fundsDifference, initialBalance = myAccount.accountFunds, differenceBalance;
 
 
         do {
 
-            System.out.print("\n" + menuOptions);
+            System.out.print("\n" + messages.getMenuOptions());
             chooseOption = sc.nextInt();
 
             switch (chooseOption){
@@ -98,8 +78,10 @@ public class AppBanco {
         }while(chooseOption != 4);
 
         System.out.println("Resumo final: ");
-        System.out.printf(clientResumeInformation, myAccount.titularAccount, myAccount.agency,
-              myAccount.numberAccount, myAccount.checkerNumber, myAccount.accountFunds, myAccount.typeOfAccount);
+        System.out.printf(messages.getClientResumeInformation(),
+                myAccount.titularAccount, myAccount.agency,
+              myAccount.numberAccount, myAccount.checkerNumber,
+                myAccount.accountFunds, myAccount.typeOfAccount);
 
     }
 }
