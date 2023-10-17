@@ -7,17 +7,17 @@ public class AppBanco {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         AccountInfo myAccount = new AccountInfo();
-        Messages messages = new Messages();
 
         //Scanning user's name.
         System.out.print("Digite seu nome: ");
         myAccount.titularAccount = sc.nextLine();
 
+        //Create the startup message
+        Messages messages = new Messages(myAccount.titularAccount, myAccount.agency,  myAccount.numberAccount,
+                myAccount.checkerNumber, myAccount.accountFunds, myAccount.typeOfAccount);
+
         //printing users information on console.
-        System.out.printf(messages.getClientResumeInformation(),
-                myAccount.titularAccount, myAccount.agency,
-               myAccount.numberAccount, myAccount.checkerNumber,
-                myAccount.accountFunds, myAccount.typeOfAccount);
+        System.out.printf(messages.toString());
 
         //Making the variable to the choose option from de menu.
         int chooseOption;
@@ -77,10 +77,7 @@ public class AppBanco {
         }while(chooseOption != 4);
 
         System.out.println("Resumo final: ");
-        System.out.printf(messages.getClientResumeInformation(),
-                myAccount.titularAccount, myAccount.agency,
-              myAccount.numberAccount, myAccount.checkerNumber,
-                myAccount.accountFunds, myAccount.typeOfAccount);
+        System.out.println(messages.toString());
 
     }
 }

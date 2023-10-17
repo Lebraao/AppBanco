@@ -1,5 +1,12 @@
 public class Messages {
-    AccountInfo accountInfo = new AccountInfo();
+
+    private String titularAccount;
+    private String agency;
+    private int numberAccount;
+    private int checkerNumber;
+    private double accountFunds;
+    private String typeOfAccount;
+
 
     //Making the message to show client's information.
     private String clientResumeInformation = """
@@ -32,5 +39,22 @@ public class Messages {
     public String getClientResumeInformation(){
 
         return clientResumeInformation;
+    }
+
+
+    public Messages(String titularAccount, String agency, int numberAccount, int checkerNumber, double accountFunds, String typeOfAccount){
+        this.titularAccount = titularAccount;
+        this.agency = agency;
+        this.numberAccount = numberAccount;
+        this.checkerNumber = checkerNumber;
+        this.accountFunds = accountFunds;
+        this.typeOfAccount = typeOfAccount;
+
+
+    }
+
+    public String toString(){
+        return String.format(clientResumeInformation, titularAccount, agency,
+                numberAccount, checkerNumber, accountFunds, typeOfAccount);
     }
 };

@@ -35,7 +35,7 @@ public class AccountInfo {
 
     //For subtract funds in account.
     public boolean withdrawFunds(double funds){
-      if(this.accountFunds >= funds){
+      if(this.accountFunds > funds){
           this.accountFunds -= funds;
           return true;
       }
