@@ -9,18 +9,13 @@ public class AppBanco {
         AccountInfo myAccount = new AccountInfo();
 
         //Scanning user's name.
-        System.out.print("Digite seu nome: ");
-        myAccount.titularAccount = sc.nextLine();
+        myAccount.setTitularAccount();
 
         //printing users information on console.
         myAccount.getAccountInfo();
 
         //Making the variable to the choose option from de menu.
         int chooseOption;
-
-        //Variables to store the initial balance and the for the funds difference.
-        double fundsDifference, initialBalance = myAccount.accountFunds, differenceBalance;
-
 
         do {
 
@@ -30,33 +25,19 @@ public class AppBanco {
             switch (chooseOption){
                 //Case one is for get the available balance and if have a difference to the initial one show in console.
                 case 1:
-                    System.out.printf("Saldo disponivel: R$ %.2f\n", myAccount.accountFunds);
-
-                    if(myAccount.accountFunds != initialBalance){
-                        differenceBalance = myAccount.accountFunds - initialBalance;
-                        System.out.printf("Diferenca de: R$ %.2f para o valor inicial\n", differenceBalance);
-                    }
+                    myAccount.showActualFunds();
 
                 break;
 
                 //Case two is for add funds to account.
                 case 2:
-                    System.out.print("Quanto ira receber?: R$ ");
-                    fundsDifference = sc.nextDouble();
-                    myAccount.addFunds(fundsDifference);
+                    myAccount.addFunds();
 
                 break;
 
                 //Case three is for check if have sufficient funds and subtract funds from the account.
                 case 3:
-                    System.out.print("Quanto ira enviar?: ");
-                    fundsDifference = sc.nextDouble();
-
-                    if(myAccount.withdrawFunds(fundsDifference)) {
-                        System.out.println("Realizado com sucesso!");
-                        }else {
-                        System.out.println("Fundos insuficientes!");
-                    }
+                    myAccount.withdrawFunds();
 
                 break;
 
