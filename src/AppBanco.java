@@ -12,12 +12,8 @@ public class AppBanco {
         System.out.print("Digite seu nome: ");
         myAccount.titularAccount = sc.nextLine();
 
-        //Create the startup message
-        Messages messages = new Messages(myAccount.titularAccount, myAccount.agency,  myAccount.numberAccount,
-                myAccount.checkerNumber, myAccount.accountFunds, myAccount.typeOfAccount);
-
         //printing users information on console.
-        System.out.printf(messages.toString());
+        myAccount.getAccountInfo();
 
         //Making the variable to the choose option from de menu.
         int chooseOption;
@@ -27,7 +23,7 @@ public class AppBanco {
 
         do {
 
-            System.out.print("\n" + messages.getMenuOptions());
+            myAccount.getMenuOptions();
             chooseOption = sc.nextInt();
 
             switch (chooseOption){
@@ -65,7 +61,7 @@ public class AppBanco {
 
                 //Case four is for to show a message that the user is leaving.
                 case 4:
-                    System.out.println("\nVoce escolheu sair!");
+                    System.out.println("Voce escolheu sair!");
 
                 break;
 
@@ -76,8 +72,8 @@ public class AppBanco {
 
         }while(chooseOption != 4);
 
-        System.out.println("Resumo final: ");
-        System.out.println(messages.toString());
+        System.out.println("\nResumo final: ");
+        myAccount.getAccountInfo();
 
     }
 }
