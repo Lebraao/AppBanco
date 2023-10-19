@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class PrincipalFunctions {
     static Scanner sc = new Scanner(System.in);
     static AccountInfo myAccount = new AccountInfo();
-
     static int chooseOption;
 
      static void chooseMenu() {

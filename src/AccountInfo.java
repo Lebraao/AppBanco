@@ -6,33 +6,28 @@ public class AccountInfo {
 
     //Name and type of account.
     private String titularAccount;
+    String typeOfAccount = "Corrente";
+    String agency = "077";
+    //Generate a random number account between 9999999 and 999999999.
+    int numberAccount = accountGenerator(99999999, 9999999);
+    //Generate a random checker number.
+    int checkerNumber = new Random().nextInt(9);
+    //Generate a random amount for the funds.
+    double accountFunds = numberGenerator(9999, 999);
+    double initialAccountFunds = accountFunds;
+
+
     void setTitularAccount(){
         System.out.print("Digite seu nome: ");
         String name = PrincipalFunctions.sc.nextLine();
         this.titularAccount = name;
     }
 
-    String typeOfAccount = "Corrente";
-
-    //Setting the agency number
-    String agency = "077";
-
-
     //Generate a random number between a interval.
     int accountGenerator(int max, int min) {
         Random random = new Random();
         return (random.nextInt(max - (min - 1)) + min);
     }
-
-    //Generate a random number account between 9999999 and 999999999.
-    int numberAccount = accountGenerator(99999999, 9999999);
-
-    //Generate a random checker number.
-    int checkerNumber = new Random().nextInt(9);
-
-    //Generate a random amount for the funds.
-    double accountFunds = numberGenerator(9999, 999);
-    double initialAccountFunds = accountFunds;
 
     double numberGenerator(double max, double min) {
         Random random = new Random();
@@ -53,8 +48,6 @@ public class AccountInfo {
         this.accountFunds += funds;
         System.out.printf("Novo saldo = R$%.2f\n", this.accountFunds);
     }
-
-    ;
 
     //For subtract funds in account.
     void withdrawFunds() {
